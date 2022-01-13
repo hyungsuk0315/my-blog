@@ -8,8 +8,8 @@ import {
   connectAuthEmulator,
   signInWithPopup,
   onAuthStateChanged,
-  User
-  // signOut
+  User,
+  signOut
 } from 'firebase/auth'
 initializeApp(firebaseConfig)
 const auth = getAuth()
@@ -56,6 +56,9 @@ onAuthStateChanged(auth, user => {
           </q-item-sectoin>
         </q-item>
       </q-list>
+      <q-card-actions align="right">
+        <q-btn icon='mdi-logout' label='로그아웃' flat color='primary' @click='signOut(auth)' />
+      </q-card-actions>
     </q-menu>
   </q-avatar>
   </q-btn>
